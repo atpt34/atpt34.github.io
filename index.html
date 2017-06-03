@@ -2,6 +2,7 @@
  <head>
  </head>
  <body>
+  <script type="text/javascript" src="js/other.js"></script>
   <h1>Hello JavaScript !</h1>
   <h3>Calculate Greatest Common Divisor: </h3>
   Enter a = <input id="a" type="text" value="0"/><br>
@@ -20,83 +21,7 @@
   <p>This is <code>computer programming language code</code></p>
   <p><b>The quick brown fox jumps over the lazy dog.</b></p>
   <p><u>The sphinx of black quartz judges my vow. </u></p>
-  <script>
-//document.writeln("Hello World!");
-//console.info("I'm in <script> tags!");
-console.log("Hello javascript!");
-var number = parseInt(prompt("Dialog to enter integer.\n Enter integer(up to 2**54): "));
-var randnumber = Math.floor(Math.random() * number);
-alert("Here is random number between zero and your number: \n" + randnumber + "\n\n\n");
-console.log("Your random number is " + randnumber);
-
-function simple_gcd(a, b) {
-    while (b != 0) {
-        r = a % b;
-        a = b;
-        b = r;
-    }
-    return a;
-}
-
-function extended_gcd(a, b) {
-    var x = 0;
-    var y = 1;
-    var u = 1;
-    var v = 0;
-    while (b != 0) {
-        var q = Math.floor(a / b);
-        var r = a % b;
-        var m = x - u * q;
-        var n = y - v * q;
-        a = b;
-        b = r;
-        x = u;
-        y = v;
-        u = m;
-        v = n;
-    }
-    return [a, y, x, v, u];
-}
-
-function squareRoot(a) {
-    return Math.sqrt(a);
-}
-
-var a = document.getElementById("a");
-var b = document.getElementById("b");
-var gcd = document.getElementById("gcd");
-var xgcd = document.getElementById("xgcd");
-//var button = document.getElementById("button");
-var sqrt = document.getElementById("sqrt");
-
-function getGcdAndSqrt() {
-    var aval = parseInt(a.value);
-    console.log("aval = " + aval);
-    if (isNaN(aval)) {
-        console.log("isNaN(aval) == true");
-        aval = 0;
-    }
-    var bval = parseInt(b.value);
-    console.log("bval = " + bval);
-    if (isNaN(bval)) {
-        console.log("isNaN(bval) == true");
-        bval = 0;
-    }
-    var g = simple_gcd(aval, bval);
-    console.log("simple_gcd = " + g);
-    var xg = extended_gcd(aval, bval);
-    console.log("extended_gcd = " + xg);
-    gcd.innerHTML = g;
-    xgcd.innerHTML = aval + " * (" + xg[1] + " + " + xg[3] + " * n) + " + bval + " * (" + xg[2] + " + " + xg[4] + " * n) = " + xg[0];
-    sqrt.innerHTML = squareRoot(aval);
-}
-
-
-//button.onclick = getGcd;
-a.oninput = getGcdAndSqrt;
-b.oninput = getGcdAndSqrt;
-
-  </script>
-
+  <script type="text/javascript" src="js/algorithm.js"></script>
+  <script type="text/javascript" src="js/process.js"></script>
  </body>
 </html>
